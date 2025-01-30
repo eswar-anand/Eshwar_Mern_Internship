@@ -1,0 +1,603 @@
+Day 1: JavaScript Basics
+Introduction to JavaScript
+JavaScript is a high-level, interpreted programming language.
+
+It is primarily used for client-side scripting in web browsers.
+
+JavaScript can also be used on the server-side (Node.js).
+
+Setting Up JavaScript
+JavaScript can be written directly in HTML files using <script> tags:
+
+html
+Copy
+<script>
+    console.log("Hello, JavaScript!");
+</script>
+Run HTML
+Alternatively, link an external JavaScript file:
+
+html
+Copy
+<script src="script.js"></script>
+Run HTML
+Basic Syntax
+Variables:
+
+Declare variables using let, const, or var.
+
+Example:
+
+
+let name = "John";
+const age = 25;
+var isStudent = true;
+Data Types:
+
+JavaScript has dynamic typing (no need to specify data types).
+
+Primitive types: string, number, boolean, null, undefined, symbol.
+
+Example:
+
+
+let name = "John"; // string
+let age = 25; // number
+let isStudent = true; // boolean
+
+Input and Output
+Alert:
+
+Display a popup message:
+
+
+alert("Hello, World!");
+Console Log:
+
+Print messages to the browser console:
+
+console.log("This is a log message.");
+Prompt:
+
+Get user input:
+
+
+let name = prompt("What is your name?");
+console.log("Hello, " + name);
+DOM Manipulation
+Selecting Elements:
+
+Use document.getElementById, document.querySelector, etc.
+
+Example:
+
+
+let heading = document.getElementById("heading");
+console.log(heading.textContent);
+Changing Content:
+
+Update the content of an element:
+
+
+heading.textContent = "New Heading";
+Event Handling:
+
+Add event listeners:
+
+
+let button = document.getElementById("myButton");
+button.addEventListener("click", () => {
+    alert("Button clicked!");
+});
+Day 2: JavaScript Objects and Advanced Basics
+Objects in JavaScript
+What is an Object?
+
+Objects are collections of key-value pairs.
+
+Keys are strings, and values can be any data type.
+
+Creating Objects:
+
+Using object literal syntax:
+
+
+let person = {
+    name: "John",
+    age: 25,
+    isStudent: true,
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+Accessing Properties:
+
+Use dot notation or bracket notation:
+
+
+console.log(person.name); // John
+console.log(person["age"]); // 25
+Adding/Updating Properties:
+
+Example:
+
+
+person.city = "New York";
+person.age = 26;
+Methods:
+
+Functions inside objects are called methods.
+
+Example:
+
+
+
+person.greet(); // Hello, John
+Arrays
+What is an Array?
+
+Arrays are ordered lists of values.
+
+Example:
+
+
+
+let fruits = ["Apple", "Banana", "Orange"];
+Accessing Elements:
+
+Use index (starting from 0):
+
+
+console.log(fruits[0]); // Apple
+Array Methods:
+
+push(): Add an element to the end.
+
+fruits.push("Mango");
+pop(): Remove the last element.
+
+
+fruits.pop();
+forEach(): Iterate over elements.
+
+fruits.forEach(fruit => console.log(fruit));
+Functions
+Declaring Functions:
+
+Use the function keyword:
+
+
+function greet(name) {
+    console.log("Hello, " + name);
+}
+greet("John");
+Arrow Functions:
+
+Shorter syntax for functions:
+
+
+const greet = (name) => {
+    console.log("Hello, " + name);
+};
+greet("Jane");
+Return Values:
+
+Functions can return values:
+
+
+function add(a, b) {
+    return a + b;
+}
+console.log(add(2, 3)); // 5
+
+
+
+
+DAY 3
+
+React is a JavaScript library for building user interfaces.
+
+It is maintained by Facebook and a community of developers.
+
+React follows a component-based architecture, making it easy to build reusable UI components.
+
+Installation:
+
+Use Vite for a faster development setup:
+
+
+npm create vite@latest my-app --template react
+cd my-app
+npm install
+npm run dev
+The npm run dev command starts a local development server on http://localhost:5173.
+
+Folder Structure:
+
+src: Contains the main application code.
+
+App.jsx: The root component.
+
+index.jsx: Entry point for rendering the app.
+
+public: Stores static assets like images, fonts, and index.html.
+
+package.json: Lists dependencies and scripts.
+
+Key Concepts:
+
+JSX: A syntax extension that allows writing HTML-like code in JavaScript.
+
+Components: Reusable pieces of UI that can be composed together.
+
+Virtual DOM: React uses a virtual DOM to optimize rendering performance.
+
+
+
+Day 4
+
+A function component is a JavaScript function that returns JSX.
+
+Example:
+
+jsx
+Copy
+function Welcome() {
+    return <h1>Hello, React!</h1>;
+}
+Class Components:
+
+Class components are ES6 classes that extend React.Component.
+
+Example:
+
+jsx
+Copy
+class Welcome extends React.Component {
+    render() {
+        return <h1>Hello, React!</h1>;
+    }
+}
+Props:
+
+Props (short for properties) are used to pass data from parent to child components.
+
+Example:
+
+jsx
+Copy
+function Welcome(props) {
+    return <h1>Hello, {props.name}!</h1>;
+}
+Usage:
+
+jsx
+Copy
+<Welcome name="John" />
+Component Reusability:
+
+Components can be reused across the application.
+
+Example:
+
+jsx
+Copy
+import Welcome from './Welcome';
+function App() {
+    return (
+        <div>
+            <Welcome name="John" />
+            <Welcome name="Jane" />
+        </div>
+    );
+}
+
+
+
+
+Day 5
+
+React Router is a library for client-side routing.
+
+Install it using:
+
+bash
+Copy
+npm install react-router-dom
+Basic Setup:
+
+Import and configure routes:
+
+jsx
+Copy
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </Router>
+    );
+}
+Navigation:
+
+Use the Link component for navigation:
+
+jsx
+Copy
+import { Link } from 'react-router-dom';
+function Navbar() {
+    return (
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+        </nav>
+    );
+}
+Dynamic Routes:
+
+Use :id for dynamic parameters:
+
+jsx
+Copy
+<Route path="/user/:id" element={<UserProfile />} />
+Access the parameter using useParams():
+
+jsx
+Copy
+import { useParams } from 'react-router-dom';
+function UserProfile() {
+    const { id } = useParams();
+    return <h1>User ID: {id}</h1>;
+}
+
+
+
+
+Day 6
+
+useState is a hook for managing local state in function components.
+
+Example:
+
+jsx
+Copy
+import { useState } from 'react';
+function Counter() {
+    const [count, setCount] = useState(0);
+    return (
+        <div>
+            <h1>{count}</h1>
+            <button onClick={() => setCount(count + 1)}>+</button>
+            <button onClick={() => setCount(count - 1)}>-</button>
+        </div>
+    );
+}
+State Updates:
+
+State updates trigger a re-render of the component.
+
+Use the setState function to update state values.
+
+Complex State:
+
+For objects or arrays, use the spread operator to avoid overwriting:
+
+jsx
+Copy
+const [user, setUser] = useState({ name: "", age: "" });
+setUser({ ...user, name: "John" });
+10/01/2025 - useEffect Hook
+Side Effects:
+
+useEffect is used for side effects like fetching data, subscriptions, or DOM manipulation.
+
+Example:
+
+jsx
+Copy
+useEffect(() => {
+    console.log('Component mounted');
+    return () => console.log('Component unmounted');
+}, []);
+Dependency Array:
+
+The second argument is an array of dependencies.
+
+If empty, the effect runs only once (on mount and unmount).
+
+Example with dependency:
+
+jsx
+Copy
+useEffect(() => {
+    console.log('Count changed:', count);
+}, [count]);
+Fetching Data:
+
+Example:
+
+jsx
+Copy
+useEffect(() => {
+    fetch('https://api.example.com/data')
+        .then(response => response.json())
+        .then(data => console.log(data));
+}, []);
+11/01/2025 - useContext Hook
+Context API:
+
+useContext is used to avoid prop drilling.
+
+Create a context:
+
+jsx
+Copy
+const UserContext = React.createContext();
+Provide a value:
+
+jsx
+Copy
+<UserContext.Provider value="John">
+    <Component />
+</UserContext.Provider>
+Consume the value:
+
+jsx
+Copy
+const user = useContext(UserContext);
+return <h1>Hello, {user}!</h1>;
+
+
+
+Day 7
+
+MongoDB stores data in JSON-like documents.
+
+It is schema-less, allowing flexible data structures.
+
+Installation:
+
+Download and install MongoDB from the official website.
+
+Start the server using:
+
+bash
+Copy
+mongod
+Mongo Shell:
+
+Open the shell using:
+
+bash
+Copy
+mongosh
+Create a database:
+
+bash
+Copy
+use myDatabase
+Insert a document:
+
+bash
+Copy
+db.users.insertOne({ name: "John", age: 25 });
+CRUD Operations:
+
+Read:
+
+bash
+Copy
+db.users.find();
+Update:
+
+bash
+Copy
+db.users.updateOne({ name: "John" }, { $set: { age: 26 } });
+Delete:
+
+bash
+Copy
+db.users.deleteOne({ name: "John" });
+
+
+
+Day 8
+
+
+Express is a Node.js framework for building APIs.
+
+Install it using:
+
+
+npm install express
+Basic Server:
+
+Example:
+
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Hello World!'));
+app.listen(3000, () => console.log('Server running on port 3000'));
+Middleware:
+
+Middleware functions process requests before sending responses.
+
+Example:
+
+
+app.use((req, res, next) => {
+    console.log('Request received');
+    next();
+});
+CORS:
+
+Enable cross-origin requests using:
+
+
+npm install cors
+js
+Copy
+const cors = require('cors');
+app.use(cors());
+
+
+
+Day 8
+
+Axios is a promise-based HTTP client for making API requests.
+
+Install it using:
+
+
+npm install axios
+Fetching Data:
+
+Example:
+
+
+import axios from 'axios';
+useEffect(() => {
+    axios.get('https://api.example.com/data')
+        .then(response => console.log(response.data))
+        .catch(error => console.error(error));
+}, []);
+POST Request:
+
+Example:
+
+
+
+axios.post('https://api.example.com/data', { key: 'value' })
+    .then(response => console.log(response.data));
+
+
+Day 9
+
+Build the UI using React components.
+
+Use Axios to communicate with the backend.
+
+Backend (Express + MongoDB):
+
+Create RESTful APIs using Express.
+
+Connect to MongoDB using Mongoose:
+
+
+npm install mongoose
+js
+Copy
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/myDatabase');
+Full-Stack Workflow:
+
+Frontend sends a request to the backend.
+
+Backend processes the request and interacts with MongoDB.
+
+Backend sends a response to the frontend.
+
+Frontend updates the UI based on the response.
